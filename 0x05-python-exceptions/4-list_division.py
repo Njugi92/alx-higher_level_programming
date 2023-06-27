@@ -9,9 +9,9 @@ def list_division(my_list_1, my_list_2, list_length):
     A new list of length list_length with all the divisions.
     """
     new_list = []
-    for j in range(0, list_length):
+    for i in range(0, list_length):
         try:
-            div = my_list_1[j] / my_list_2[j]
+            div = my_list_1[i] / my_list_2[i]
         except TypeError:
             print("Wrong type")
             div = 0
