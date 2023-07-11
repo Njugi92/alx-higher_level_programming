@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """It defines a JSON-to- an object function"""
+import json
 
 
 def from_json_string(my_str):
