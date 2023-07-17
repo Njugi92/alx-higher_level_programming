@@ -74,7 +74,7 @@ class Base:
         """It returns a class instantied from a dictionary of attributes.
 
         Args:
-            **dictionary (dict): The key/value pairs of attributes to initialize.
+            **dictionary (dict):key/value pairs of attributes to initialize.
         """
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
@@ -86,7 +86,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Method returns list of classes instantiated from a file of JSON strings.
+        """Method returns list of classes instantiated from
+        a file of JSON strings.
 
         Reads from `<cls.__name__>.json`.
 
