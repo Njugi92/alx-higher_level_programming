@@ -10,7 +10,7 @@ from sys import argv
 if __name__ == '__main__':
     # Establish database connection
     db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                        passwd=argv[2], db=argv[3])
+                         passwd=argv[2], db=argv[3])
 
     # This enables ability for multiple separate working
     # environment through the same connection to database
