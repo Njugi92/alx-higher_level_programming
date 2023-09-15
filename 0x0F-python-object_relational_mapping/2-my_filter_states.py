@@ -16,7 +16,8 @@ if __name__ = '__main__':
     # In order to have multiple separate working environment
     # via same connection
     cur = db.cursor()
-    nameSr = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(argv[4])
+    nameSr = "SELECT * FROM states WHERE name LIKE BINARY '{}'.format(argv[4])
+             ORDER BY id ASC"
     cur.execute(nameSr)
 
     rows = cur.fetchall()
