@@ -1,25 +1,29 @@
 #!/usr/bin/python3
 """
-Script that lists all State objects from the database - Using module SQLAlchemy
+This prints State object with name passed as arg
+from the database
+Using module SQLAlchemy
 """
+
 from model_state import Base, State
-from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sys import argv
 
 if __name__ == "__main__":
-
-    # create an engine
+    # creates an engine
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
-
-    # create a configured "Session" class
+    # This creates configured "Session" class
     Session = sessionmaker(bind=engine)
-    # create a Session
+    # To create a Session
     session = Session()
     Base.metadata.create_all(engine)
 
-    s_tate = session.query(State).order_by(State.id).all()
-    for state in s_tate:
-        print("{}: {}".format(state.id, state.name))
+    s_tate = session.query(State).filter(State.name == argv[4]).first()
+
+    if s_tate:
+        print("{}".format(s_tate.id))
+    else:
+        print("Not found")
     session.close()
